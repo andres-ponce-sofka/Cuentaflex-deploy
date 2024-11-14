@@ -62,6 +62,12 @@ public class PostgresAccountRepository implements AccountRepository {
     }
 
     @Override
+    public List<Account> getByCustomerId(String customerId) {
+        List<JpaAccountEntity> accountEntities = this.jpaAccountRepository.findByCustomer_Id(Integer.parseInt(customerId));
+        return accountEntities.stream().map(JpaAccountMapper::fromJpaToModelAccount).toList();
+    }
+
+    @Override
     @Transactional
     public List<Account> updateMany(Account... accounts) {
         Map<Transaction, JpaTransactionEntity> createdTransactionEntitiesMap = new HashMap<>();

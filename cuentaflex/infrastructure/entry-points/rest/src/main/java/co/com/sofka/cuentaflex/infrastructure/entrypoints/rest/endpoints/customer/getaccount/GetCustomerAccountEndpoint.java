@@ -46,7 +46,7 @@ public final class GetCustomerAccountEndpoint {
                     content = @Content(schema = @Schema(implementation = DinResponse.class))
             )
     })
-    @GetMapping
+    @PostMapping
     public ResponseEntity<DinResponse<GetCustomerAccountResponseDto>> getCustomerAccount(
             @RequestBody DinRequest<GetCustomerAccountRequestDto> request
     ) {

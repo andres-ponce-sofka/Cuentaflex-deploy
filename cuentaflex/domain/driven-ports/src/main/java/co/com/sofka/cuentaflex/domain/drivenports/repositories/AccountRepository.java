@@ -9,4 +9,5 @@ public interface AccountRepository {
     Account getByIdAndCustomerId(String accountId, String customerId);
     Account getByAccountNumber(int number);
     List<Account> updateMany(Account... accounts);
+    List<Account> getByCustomerId(String customerId);
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class UnkwonErrorsHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity handleException(Exception e) {
+        e.printStackTrace();
         return ResponseEntity.internalServerError().body(new DinResponse(new DinHeader(), DinError.getUnknownError()));
     }
 }

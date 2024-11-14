@@ -111,6 +111,21 @@ public class MongoAccountRepository implements AccountRepository {
     }
 
     @Override
+    public List<Account> getByCustomerId(String customerId) {
+        MongoCustomerDocument customerDocument = this.mongoTemplate.findById(customerId, MongoCustomerDocument.class);
+
+        if (customerDocument == null) {
+            return null;
+        }
+
+        return customerDocument
+                .getAccounts()
+                .stream()
+                .map(MongoAccountMapper::toModel)
+                .toList();
+    }
+
+    @Override
     @Transactional
     public List<Account> updateMany(Account... accounts) {
         Map<Transaction, MongoTransactionDocument> savedTransactions = new HashMap<>();

@@ -1,6 +1,6 @@
 package co.com.sofka.cuentaflex.infrastructure.entrypoints.rest.endpoints.customer.getaccount;
 
-public class GetCustomerAccountRequestDto {
+public final class GetCustomerAccountRequestDto {
     private String customerId;
     private String accountId;
 
