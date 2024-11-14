@@ -55,7 +55,7 @@ public final class LoginService {
 
             return ResponseEntity.ok(new DinResponse<>(
                     request.getDinHeader(),
-                    new LoginResponseDto(token)
+                    new LoginResponseDto(customerId, token)
             ));
         } catch (AuthenticationException e) {
             DinResponse<LoginResponseDto> response = new DinResponse<>(
